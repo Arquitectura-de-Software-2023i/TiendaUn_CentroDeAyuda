@@ -1,0 +1,28 @@
+version: "3"
+
+services: 
+  tiendaun_centroayuda_ms:
+    container_name: tiendaun_centroayuda_ms
+    restart: always
+    build: .
+    ports: 
+      - "3001:3001"
+    links:
+      - tiendaun_centroayuda_db
+    volumes: 
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    logging: 
+          options: 
+               max-size: "10m" 
+               max-file: "3"
+    
+  tiendaun_centroayuda_db:
+    container_name: tiendaun_centroayuda_db
+    image: mongo
+    ports: 
+      - "20018:20018"
+    logging: 
+          options: 
+               max-size: "10m" 
+               max-file: "3"

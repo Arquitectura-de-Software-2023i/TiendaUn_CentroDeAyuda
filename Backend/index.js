@@ -4,14 +4,14 @@ const app = express();
 const morgan = require('morgan')
 const {mongoose} = require('./database')
 //Settings
-app.set('port', 3000)
+app.set('port', 3001)
 
 //Middlewares
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
 //Routes
-app.use('/api/message', require('./Routes/message.routes'))
+app.use('/api/pqr', require('./Routes/message.routes'))
 app.use('/api/chat', require('./Routes/chat.routes'))
 
 //Star Server
